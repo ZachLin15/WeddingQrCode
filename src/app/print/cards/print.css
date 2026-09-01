@@ -1,0 +1,63 @@
+.print-page {
+  min-height: 100vh;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 105mm);
+  grid-auto-rows: 148mm;
+  gap: 0;
+  justify-content: center;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.card {
+  width: 105mm;
+  height: 148mm;
+  position: relative;
+  box-sizing: border-box;
+  border: 0.4mm dashed #cbb89a;
+  padding: 7mm 8mm;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.qr-frame {
+  width: 42mm;
+  height: 42mm;
+}
+
+.qr-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0;
+    background: #ffffff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-page {
+    padding: 0 !important;
+    background: #ffffff !important;
+    min-height: 0;
+  }
+
+  .card-grid {
+    width: auto;
+  }
+}

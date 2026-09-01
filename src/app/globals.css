@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff6f8;
+  --foreground: #5a3a44;
+
+  /* Bright pink wedding palette */
+  --color-cream: #fff6f8;
+  --color-cream-deep: #ffe9ef;
+  --color-blush: #ffb8ce;
+  --color-blush-soft: #ffe0ea;
+  --color-peach: #ffb199;
+  --color-peach-soft: #ffdccf;
+  --color-pink: #ff6f9e;
+  --color-pink-light: #ff96b7;
+  --color-pink-dark: #e14f82;
+  --color-gold: #c79256;
+  --color-gold-light: #e3b073;
+  --color-gold-dark: #a66f35;
+  --color-lilac: #f0b8e0;
+  --color-lilac-soft: #fbe0f5;
+  --color-ink: #5a3a44;
+  --color-ink-soft: #a67888;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-cream: var(--color-cream);
+  --color-cream-deep: var(--color-cream-deep);
+  --color-blush: var(--color-blush);
+  --color-blush-soft: var(--color-blush-soft);
+  --color-peach: var(--color-peach);
+  --color-peach-soft: var(--color-peach-soft);
+  --color-pink: var(--color-pink);
+  --color-pink-light: var(--color-pink-light);
+  --color-pink-dark: var(--color-pink-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-lilac: var(--color-lilac);
+  --color-lilac-soft: var(--color-lilac-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+
+  --font-script: var(--font-parisienne);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-jost);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-jost), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  width: 100%;
 }
