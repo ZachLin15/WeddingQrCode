@@ -15,6 +15,8 @@ export default function TableCard({ table }: { table: number }) {
       }}
     >
       <MickeySilhouette className="pointer-events-none absolute -right-6 -bottom-6 h-28 w-28 text-lilac-soft opacity-80" />
+      <MickeySilhouette className="pointer-events-none absolute -left-8 -top-8 h-24 w-24 text-pink-light opacity-25" />
+      <MickeyEars className="pointer-events-none absolute right-3 bottom-24 h-8 w-14 -rotate-12 text-gold-light opacity-70" />
       <PoppyFlower className="pointer-events-none absolute -left-3 -top-3 h-14 w-14 opacity-90 -rotate-6" />
       <WildflowerSpray className="pointer-events-none absolute right-1 top-1 h-12 w-12 opacity-80" />
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />

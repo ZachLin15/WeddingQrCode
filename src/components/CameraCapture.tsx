@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import ArchPanel from "./motifs/ArchPanel";
 import GoldButterfly from "./motifs/GoldButterfly";
+import MickeyEars from "./motifs/MickeyEars";
 import { compressImage } from "@/lib/compressImage";
 import { uploadPhoto } from "@/lib/uploadPhoto";
 
@@ -217,7 +218,8 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "done" && (
         <div className="flex flex-col items-center gap-4 py-10 text-center">
-          <GoldButterfly className="h-12 w-16" />
+          <MickeyEars className="h-8 w-16 text-gold-light" />
+          <GoldButterfly className="-mt-2 h-12 w-16" />
           <h2 className="font-script text-3xl text-pink-dark">Thank you!</h2>
           <p className="font-display text-lg text-ink/80 px-4">
             Your photo has been added to our wedding album.

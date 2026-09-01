@@ -5,6 +5,7 @@ import TableBadge from "./TableBadge";
 import CameraCapture from "./CameraCapture";
 import MickeySilhouette from "./motifs/MickeySilhouette";
 import FloralField from "./motifs/FloralField";
+import MickeyField from "./motifs/MickeyField";
 
 export default function TableExperience({ table }: { table: number }) {
   return (
@@ -19,6 +20,7 @@ export default function TableExperience({ table }: { table: number }) {
       <MickeySilhouette
         className="pointer-events-none absolute -left-16 top-24 h-56 w-56 text-lilac opacity-70"
       />
+      <MickeyField />
       <FloralField />
 
       <div

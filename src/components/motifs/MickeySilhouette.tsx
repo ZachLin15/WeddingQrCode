@@ -1,14 +1,18 @@
+import type { CSSProperties } from "react";
+
 type Props = {
   className?: string;
+  style?: CSSProperties;
   color?: string;
 };
 
 /** Solid three-circle Mickey silhouette used as a soft watermark shape. */
-export default function MickeySilhouette({ className = "", color = "currentColor" }: Props) {
+export default function MickeySilhouette({ className = "", style, color = "currentColor" }: Props) {
   return (
     <svg
       viewBox="0 0 240 220"
       className={className}
+      style={style}
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
