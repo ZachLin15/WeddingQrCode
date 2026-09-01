@@ -36,9 +36,14 @@ export default function TableCard({ table }: { table: number }) {
         </p>
       </div>
 
-      <div className="qr-frame relative z-10 flex items-center justify-center rounded-full bg-white p-2 shadow-[0_6px_16px_rgba(140,106,58,0.25)]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={`/qr/table-${table}.png`} alt={`Table ${table} QR code`} />
+      <div className="relative z-10 flex flex-col items-center gap-3">
+        <p className="max-w-[32mm] text-center font-display text-[11px] italic leading-snug text-ink-soft">
+          Please scan the QR code to take a photo with us
+        </p>
+        <div className="qr-frame flex items-center justify-center rounded-full bg-white p-2 shadow-[0_6px_16px_rgba(140,106,58,0.25)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/qr/table-${table}.png`} alt={`Table ${table} QR code`} />
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
