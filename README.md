@@ -61,10 +61,10 @@ Once you know your production URL:
 SITE_URL=https://jiaxin-wedding.vercel.app node scripts/generate-qr-codes.mjs
 ```
 
-This writes 55 PNGs into `public/qr/`. If you're generating them for a
-**deployed** site (not testing locally), redeploy afterwards so the new QR
-images ship (or just regenerate directly on your machine before your next
-`git push`/Vercel deploy).
+This writes 55 PNGs into `public/qr/`, which are committed to the repo (they're
+small, ~5KB each) so Vercel serves them as static files — no build step needed.
+**Commit and push after regenerating** so the deployed site picks up the new
+images. If your domain ever changes, re-run this command and push again.
 
 ### 5. Print the table cards
 
