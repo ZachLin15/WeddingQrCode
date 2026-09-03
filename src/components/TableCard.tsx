@@ -4,6 +4,7 @@ import MickeySilhouette from "./motifs/MickeySilhouette";
 import PoppyFlower from "./motifs/PoppyFlower";
 import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
+import HeartDivider from "./motifs/HeartDivider";
 
 export default function TableCard({ table }: { table: number }) {
   return (
@@ -17,7 +18,12 @@ export default function TableCard({ table }: { table: number }) {
       <MickeySilhouette className="pointer-events-none absolute -right-6 -bottom-6 h-28 w-28 text-lilac-soft opacity-80" />
       <MickeySilhouette className="pointer-events-none absolute -left-8 -top-8 h-24 w-24 text-pink-light opacity-25" />
       <MickeyEars className="pointer-events-none absolute right-3 bottom-24 h-8 w-14 -rotate-12 text-gold-light opacity-70" />
-      <PoppyFlower className="pointer-events-none absolute -left-3 -top-3 h-14 w-14 opacity-90 -rotate-6" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/flowers/spray-pink.webp"
+        alt=""
+        className="pointer-events-none absolute -left-4 -top-4 h-24 w-auto -rotate-[18deg] opacity-95"
+      />
       <WildflowerSpray className="pointer-events-none absolute right-1 top-1 h-12 w-12 opacity-80" />
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
       <PoppyFlower
@@ -33,6 +39,7 @@ export default function TableCard({ table }: { table: number }) {
       <div className="relative z-10 flex flex-col items-center text-center">
         <MickeyEars className="h-8 w-16 text-gold-light" />
         <p className="-mt-1.5 font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
+        <HeartDivider className="mt-0.5 h-2 w-12 text-gold-light" />
         <p className="mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
           {WEDDING_DATE_DISPLAY}
         </p>

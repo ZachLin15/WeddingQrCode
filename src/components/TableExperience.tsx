@@ -22,6 +22,18 @@ export default function TableExperience({ table }: { table: number }) {
       />
       <MickeyField />
       <FloralField />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/flowers/spray-white-peach.webp"
+        alt=""
+        className="pointer-events-none absolute -right-6 top-0 h-44 w-auto rotate-[8deg] opacity-95 sm:h-52"
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/flowers/spray-coral-peach.webp"
+        alt=""
+        className="pointer-events-none absolute -left-6 bottom-0 h-44 w-auto -rotate-[10deg] scale-x-[-1] opacity-95 sm:h-52"
+      />
 
       <div
         className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-7 px-5 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-6"

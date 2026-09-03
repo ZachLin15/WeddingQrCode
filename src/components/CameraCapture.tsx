@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import ArchPanel from "./motifs/ArchPanel";
+import PhotoFrame from "./motifs/PhotoFrame";
 import GoldButterfly from "./motifs/GoldButterfly";
 import MickeyEars from "./motifs/MickeyEars";
 import { compressImage } from "@/lib/compressImage";
@@ -76,11 +76,16 @@ export default function CameraCapture({ table }: { table: number }) {
     const video = videoRef.current;
     const canvas = canvasRef.current;
     if (!video || !canvas) return;
-    canvas.width = video.videoWidth || 1280;
-    canvas.height = video.videoHeight || 960;
+    const vw = video.videoWidth || 1280;
+    const vh = video.videoHeight || 1280;
+    const size = Math.min(vw, vh);
+    const sx = (vw - size) / 2;
+    const sy = (vh - size) / 2;
+    canvas.width = size;
+    canvas.height = size;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    ctx.drawImage(video, sx, sy, size, size, 0, 0, size, size);
     canvas.toBlob(
       (blob) => {
         if (blob) setPhoto(blob);
@@ -161,7 +166,7 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "live" && (
         <div className="flex flex-col items-center gap-6">
-          <ArchPanel className="aspect-[3/4] w-full">
+          <PhotoFrame className="aspect-square w-full">
             <video
               ref={videoRef}
               autoPlay
@@ -169,7 +174,7 @@ export default function CameraCapture({ table }: { table: number }) {
               playsInline
               className="h-full w-full object-cover"
             />
-          </ArchPanel>
+          </PhotoFrame>
           <div className="flex w-full items-center justify-center gap-8">
             <button
               onClick={() => {
@@ -188,10 +193,10 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "preview" && photoUrl && (
         <div className="flex flex-col items-center gap-6">
-          <ArchPanel className="aspect-[3/4] w-full">
+          <PhotoFrame className="aspect-square w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={photoUrl} alt="Your captured photo" className="h-full w-full object-cover" />
-          </ArchPanel>
+          </PhotoFrame>
           <div className="flex w-full gap-3">
             <button
               onClick={retake}
