@@ -8,6 +8,7 @@ import { compressImage } from "@/lib/compressImage";
 import { uploadPhoto } from "@/lib/uploadPhoto";
 
 type Stage = "idle" | "live" | "preview" | "uploading" | "done" | "error";
+type FacingMode = "environment" | "user";
 
 const LOADING_MESSAGES = [
   "Sprinkling a little gold dust...",
@@ -19,6 +20,8 @@ export default function CameraCapture({ table }: { table: number }) {
   const [stage, setStage] = useState<Stage>("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
+  const [facingMode, setFacingMode] = useState<FacingMode>("environment");
+  const [canFlip, setCanFlip] = useState(true);
   const [loadingMsg] = useState(
     () => LOADING_MESSAGES[Math.floor(Math.random() * LOADING_MESSAGES.length)],
   );
@@ -51,13 +54,30 @@ export default function CameraCapture({ table }: { table: number }) {
     }
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: { ideal: "environment" } },
+        video: { facingMode: { ideal: facingMode } },
         audio: false,
       });
       streamRef.current = stream;
       setStage("live");
     } catch {
       fileInputRef.current?.click();
+    }
+  };
+
+  const flipCamera = async () => {
+    if (!navigator.mediaDevices?.getUserMedia) return;
+    const nextMode: FacingMode = facingMode === "environment" ? "user" : "environment";
+    try {
+      const newStream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: nextMode } },
+        audio: false,
+      });
+      stopStream();
+      streamRef.current = newStream;
+      if (videoRef.current) videoRef.current.srcObject = newStream;
+      setFacingMode(nextMode);
+    } catch {
+      setCanFlip(false);
     }
   };
 
@@ -85,6 +105,10 @@ export default function CameraCapture({ table }: { table: number }) {
     canvas.height = size;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    if (facingMode === "user") {
+      ctx.translate(size, 0);
+      ctx.scale(-1, 1);
+    }
     ctx.drawImage(video, sx, sy, size, size, 0, 0, size, size);
     canvas.toBlob(
       (blob) => {
@@ -166,15 +190,26 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "live" && (
         <div className="flex flex-col items-center gap-6">
-          <PhotoFrame className="aspect-square w-full">
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              playsInline
-              className="h-full w-full object-cover"
-            />
-          </PhotoFrame>
+          <div className="relative w-full">
+            <PhotoFrame className="aspect-square w-full">
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                playsInline
+                className={`h-full w-full object-cover ${facingMode === "user" ? "scale-x-[-1]" : ""}`}
+              />
+            </PhotoFrame>
+            {canFlip && (
+              <button
+                onClick={flipCamera}
+                aria-label="Flip camera"
+                className="absolute top-3 right-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-pink-dark shadow-md backdrop-blur-sm transition active:scale-95"
+              >
+                <FlipCameraIcon className="h-5 w-5" />
+              </button>
+            )}
+          </div>
           <div className="flex w-full items-center justify-center gap-8">
             <button
               onClick={() => {
@@ -285,5 +320,25 @@ function ShutterButton({
         {label}
       </span>
     </div>
+  );
+}
+
+function FlipCameraIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M17 2l4 4-4 4" />
+      <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+      <path d="M7 22l-4-4 4-4" />
+      <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+    </svg>
   );
 }
