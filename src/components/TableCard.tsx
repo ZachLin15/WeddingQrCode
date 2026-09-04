@@ -16,8 +16,6 @@ export default function TableCard({ table }: { table: number }) {
       }}
     >
       <MickeySilhouette className="pointer-events-none absolute -right-6 -bottom-6 h-28 w-28 text-lilac-soft opacity-80" />
-      <MickeySilhouette className="pointer-events-none absolute -left-8 -top-8 h-24 w-24 text-pink-light opacity-25" />
-      <MickeyEars className="pointer-events-none absolute right-3 bottom-24 h-8 w-14 -rotate-12 text-gold-light opacity-70" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/flowers/spray-pink.webp"

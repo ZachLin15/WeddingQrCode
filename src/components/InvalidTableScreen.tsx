@@ -1,7 +1,5 @@
 import GuestHeader from "./GuestHeader";
-import MickeyEars from "./motifs/MickeyEars";
 import FloralField from "./motifs/FloralField";
-import MickeyField from "./motifs/MickeyField";
 
 export default function InvalidTableScreen() {
   return (
@@ -13,11 +11,9 @@ export default function InvalidTableScreen() {
             "radial-gradient(ellipse at 15% 0%, var(--color-blush) 0%, transparent 60%), radial-gradient(ellipse at 100% 20%, var(--color-peach-soft) 0%, transparent 55%), radial-gradient(ellipse at 10% 100%, var(--color-lilac-soft) 0%, transparent 50%)",
         }}
       />
-      <MickeyField />
       <FloralField />
       <div className="relative flex flex-col items-center gap-6">
         <GuestHeader />
-        <MickeyEars className="h-10 w-20 text-pink-light opacity-70" />
         <p className="max-w-xs font-display text-xl text-ink/80">
           Please scan the QR code at your table to share your photos with us.
         </p>
