@@ -257,9 +257,15 @@ export default function CameraCapture({ table }: { table: number }) {
       )}
 
       {stage === "done" && (
-        <div className="flex flex-col items-center gap-4 py-10 text-center">
+        <div className="flex flex-col items-center gap-4 py-6 text-center">
           <MickeyEars className="h-8 w-16 text-gold-light" />
-          <GoldButterfly className="-mt-2 h-12 w-16" />
+          {photoUrl && (
+            <PhotoFrame className="aspect-square w-48 sm:w-56">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={photoUrl} alt="The photo you just took" className="h-full w-full object-cover" />
+            </PhotoFrame>
+          )}
+          <GoldButterfly className="h-10 w-14" />
           <h2 className="font-script text-3xl text-pink-dark">Thank you!</h2>
           <p className="font-display text-lg text-ink/80 px-4">
             Your photo has been added to our wedding album.
