@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# generated print export (re-export from /print/cards whenever it changes)
+/table-cards-print.pdf
