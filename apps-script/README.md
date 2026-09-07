@@ -61,3 +61,10 @@ The Web app URL stays the same across versions.
 - Nothing here costs money — Apps Script Web Apps and Drive storage under your
   own personal Google account are free (subject to your account's normal Drive
   storage quota).
+- **Guest album**: each uploaded photo is set to "Anyone with the link can
+  view" so the app's `/t/{table}/album` page can display it back to guests —
+  photos aren't publicly listed/searchable, but anyone who gets a direct link
+  could open one. If you already deployed this script before the album
+  feature was added, follow "Updating the script later" above to pick up this
+  change — photos uploaded before the update won't retroactively become
+  viewable, only new ones after you redeploy.

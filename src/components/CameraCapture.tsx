@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import PhotoFrame from "./motifs/PhotoFrame";
 import GoldButterfly from "./motifs/GoldButterfly";
 import MickeyEars from "./motifs/MickeyEars";
@@ -276,6 +277,12 @@ export default function CameraCapture({ table }: { table: number }) {
           >
             Take Another Photo
           </button>
+          <Link
+            href={`/t/${table}/album`}
+            className="font-sans text-[11px] tracking-[0.2em] text-ink-soft uppercase underline underline-offset-4"
+          >
+            View Table Album
+          </Link>
         </div>
       )}
 
