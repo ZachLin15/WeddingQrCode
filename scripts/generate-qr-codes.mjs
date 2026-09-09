@@ -16,7 +16,7 @@ async function run() {
     await QRCode.toFile(filePath, url, {
       width: 600,
       margin: 2,
-      color: { dark: "#4A3F3A", light: "#00000000" },
+      color: { dark: "#1F3A63", light: "#00000000" },
     });
   }
   console.log(`Done. QR codes written to ${OUT_DIR}`);

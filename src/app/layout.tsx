@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Parisienne, Cormorant_Garamond, Jost } from "next/font/google";
+import { Parisienne, Cormorant_Garamond, Jost, Noto_Serif_SC } from "next/font/google";
 import "./globals.css";
 
 const parisienne = Parisienne({
@@ -20,6 +20,12 @@ const jost = Jost({
   weight: ["300", "400", "500", "600"],
 });
 
+const notoSerifSC = Noto_Serif_SC({
+  variable: "--font-noto-serif-sc",
+  subsets: ["latin"],
+  weight: ["500", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Kah Yeong & Jia Xin | 26.9.2026",
   description: "Share your photos from Kah Yeong & Jia Xin's wedding celebration.",
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${parisienne.variable} ${cormorant.variable} ${jost.variable} h-full antialiased`}
+      className={`${parisienne.variable} ${cormorant.variable} ${jost.variable} ${notoSerifSC.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">{children}</body>
     </html>

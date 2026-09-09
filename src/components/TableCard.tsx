@@ -1,10 +1,16 @@
-import { COUPLE_NAMES, WEDDING_DATE_DISPLAY } from "@/lib/config";
+import {
+  COUPLE_NAMES,
+  COUPLE_NAMES_ZH,
+  SCAN_INSTRUCTION_EN,
+  SCAN_INSTRUCTION_ZH,
+  WEDDING_DATE_DISPLAY,
+} from "@/lib/config";
 import MickeyEars from "./motifs/MickeyEars";
 import MickeySilhouette from "./motifs/MickeySilhouette";
-import PoppyFlower from "./motifs/PoppyFlower";
 import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
 import HeartDivider from "./motifs/HeartDivider";
+import Heart from "./motifs/Heart";
 
 export default function TableCard({ table }: { table: number }) {
   return (
@@ -15,7 +21,7 @@ export default function TableCard({ table }: { table: number }) {
           "linear-gradient(180deg, var(--color-blush-soft) 0%, var(--color-cream) 55%, var(--color-peach-soft) 100%)",
       }}
     >
-      <MickeySilhouette className="pointer-events-none absolute -right-6 -bottom-6 h-28 w-28 text-lilac-soft opacity-80" />
+      <MickeySilhouette className="pointer-events-none absolute right-1 bottom-1 h-24 w-24 text-lilac-soft opacity-80" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/images/flowers/spray-pink.webp"
@@ -24,38 +30,40 @@ export default function TableCard({ table }: { table: number }) {
       />
       <WildflowerSpray className="pointer-events-none absolute right-1 top-1 h-12 w-12 opacity-80" />
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
-      <PoppyFlower
-        className="pointer-events-none absolute -left-2 bottom-20 h-10 w-10 rotate-6 opacity-60"
-        petalColor="#FFD3C4"
-      />
-      <WildflowerSpray className="pointer-events-none absolute -right-1 top-1/3 h-10 w-10 opacity-50" />
-      <PoppyFlower
-        className="pointer-events-none absolute -right-2 top-16 h-9 w-9 -rotate-12 opacity-55"
-        petalColor="#FFE0D9"
-      />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <MickeyEars className="h-8 w-16 text-gold-light" />
-        <p className="-mt-1.5 font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
-        <HeartDivider className="mt-0.5 h-2 w-12 text-gold-light" />
+        <MickeyEars className="h-14 w-28" />
+        <p className="-mt-3 font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
+        <p className="mt-0.5 font-zh text-sm font-bold text-ink">{COUPLE_NAMES_ZH}</p>
+        <HeartDivider className="mt-1 h-2 w-12 text-gold-light" />
         <p className="mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
           {WEDDING_DATE_DISPLAY}
         </p>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-3">
-        <p className="max-w-[32mm] text-center font-display text-[11px] italic leading-snug text-ink-soft">
-          Please scan the QR code to take a photo with us
+      <div className="relative z-10 flex w-full items-start justify-center gap-2 px-1">
+        <p className="flex-1 text-center font-display text-[9px] italic leading-snug text-ink-soft">
+          {SCAN_INSTRUCTION_EN}
         </p>
-        <div className="qr-frame flex items-center justify-center rounded-full bg-white p-2 shadow-[0_6px_16px_rgba(140,106,58,0.25)]">
+        <p className="flex-1 text-center font-zh text-[9px] font-bold leading-snug text-pink-dark">
+          {SCAN_INSTRUCTION_ZH}
+        </p>
+      </div>
+
+      <div className="qr-frame relative z-10 flex items-center justify-center rounded-[22%] bg-white p-2 shadow-[0_10px_24px_-10px_rgba(140,106,58,0.4)]">
+        <div className="flex h-full w-full items-center justify-center rounded-[16%] border-[3px] border-navy p-1.5">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`/qr/table-${table}.png`} alt={`Table ${table} QR code`} />
         </div>
+        <Heart className="pointer-events-none absolute -top-3 -right-2 h-6 w-7 text-pink" />
+        <Heart className="pointer-events-none absolute -top-1 right-3 h-3.5 w-4 text-pink-dark" />
+        <Heart className="pointer-events-none absolute -bottom-2 -left-3 h-6 w-7 text-pink-dark" />
+        <Heart className="pointer-events-none absolute bottom-1 left-4 h-3 w-3.5 text-pink" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center">
         <span className="font-sans text-[9px] tracking-[0.35em] text-ink-soft uppercase">Table</span>
-        <span className="font-display text-3xl leading-none text-gold-dark">{table}</span>
+        <span className="font-display text-3xl leading-none text-pink-dark">{table}</span>
       </div>
     </div>
   );

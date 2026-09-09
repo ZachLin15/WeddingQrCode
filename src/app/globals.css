@@ -21,6 +21,7 @@
   --color-lilac-soft: #fbe0f5;
   --color-ink: #5a3a44;
   --color-ink-soft: #a67888;
+  --color-navy: #1f3a63;
 }
 
 @theme inline {
@@ -43,10 +44,12 @@
   --color-lilac-soft: var(--color-lilac-soft);
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
+  --color-navy: var(--color-navy);
 
   --font-script: var(--font-parisienne);
   --font-display: var(--font-cormorant);
   --font-sans: var(--font-jost);
+  --font-zh: var(--font-noto-serif-sc);
 }
 
 html {
