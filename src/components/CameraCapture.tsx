@@ -6,6 +6,7 @@ import PhotoFrame from "./motifs/PhotoFrame";
 import GoldButterfly from "./motifs/GoldButterfly";
 import { compressImage } from "@/lib/compressImage";
 import { uploadPhoto } from "@/lib/uploadPhoto";
+import { CAPTURE_PROMPT_EN, CAPTURE_PROMPT_ZH } from "@/lib/config";
 
 type Stage = "idle" | "live" | "preview" | "uploading" | "done" | "error";
 type FacingMode = "environment" | "user";
@@ -181,9 +182,10 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "idle" && (
         <div className="flex flex-col items-center gap-6 py-6">
-          <p className="text-center font-display text-lg text-ink/80 px-4">
-            Capture a memory from your table &mdash; it&apos;ll land straight in our wedding album.
-          </p>
+          <div className="flex flex-col items-center gap-1.5 px-4">
+            <p className="text-center font-display text-lg text-ink/80">{CAPTURE_PROMPT_EN}</p>
+            <p className="text-center font-zh text-sm text-ink-soft">{CAPTURE_PROMPT_ZH}</p>
+          </div>
           <ShutterButton onClick={startLiveCamera} label="Take a Photo" />
         </div>
       )}
