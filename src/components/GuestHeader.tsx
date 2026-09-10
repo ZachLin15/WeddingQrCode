@@ -5,7 +5,7 @@ import HeartDivider from "./motifs/HeartDivider";
 export default function GuestHeader() {
   return (
     <div className="relative flex w-full flex-col items-center px-2 pt-2 text-center">
-      <MickeyEars className="h-24 w-28 shrink-0 sm:h-28 sm:w-32" />
+      <MickeyEars className="h-20 w-[6.5rem] shrink-0 sm:h-24 sm:w-[7.8rem]" />
       <h1 className="-mt-4 whitespace-nowrap font-script text-gold-dark text-[clamp(1.35rem,7.2vw,2.75rem)] leading-tight sm:-mt-5">
         {COUPLE_NAMES}
       </h1>

@@ -32,7 +32,7 @@ export default function TableCard({ table }: { table: number }) {
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
 
       <div className="relative z-10 flex flex-col items-center text-center">
-        <MickeyEars className="h-16 w-[4.5rem]" />
+        <MickeyEars className="h-14 w-[4.6rem]" />
         <p className="-mt-3 font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
         <p className="mt-0.5 font-zh text-sm font-bold text-ink">{COUPLE_NAMES_ZH}</p>
         <HeartDivider className="mt-1 h-2 w-12 text-gold-light" />

@@ -259,7 +259,7 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "done" && (
         <div className="flex flex-col items-center gap-4 py-6 text-center">
-          <MickeyEars className="h-9 w-10" />
+          <MickeyEars className="h-8 w-11" />
           {photoUrl && (
             <PhotoFrame className="aspect-square w-48 sm:w-56">
               {/* eslint-disable-next-line @next/next/no-img-element */}
