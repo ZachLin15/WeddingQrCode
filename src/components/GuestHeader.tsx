@@ -1,12 +1,10 @@
 import { COUPLE_NAMES, COUPLE_NAMES_ZH, WEDDING_DATE_DISPLAY } from "@/lib/config";
-import MickeyEars from "./motifs/MickeyEars";
 import HeartDivider from "./motifs/HeartDivider";
 
 export default function GuestHeader() {
   return (
     <div className="relative flex w-full flex-col items-center px-2 pt-2 text-center">
-      <MickeyEars className="h-20 w-[6.5rem] shrink-0 sm:h-24 sm:w-[7.8rem]" />
-      <h1 className="-mt-4 whitespace-nowrap font-script text-gold-dark text-[clamp(1.35rem,7.2vw,2.75rem)] leading-tight sm:-mt-5">
+      <h1 className="whitespace-nowrap font-script text-gold-dark text-[clamp(1.35rem,7.2vw,2.75rem)] leading-tight">
         {COUPLE_NAMES}
       </h1>
       <p className="mt-1 font-zh text-lg font-bold text-ink sm:text-xl">{COUPLE_NAMES_ZH}</p>

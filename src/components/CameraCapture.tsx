@@ -4,7 +4,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import PhotoFrame from "./motifs/PhotoFrame";
 import GoldButterfly from "./motifs/GoldButterfly";
-import MickeyEars from "./motifs/MickeyEars";
 import { compressImage } from "@/lib/compressImage";
 import { uploadPhoto } from "@/lib/uploadPhoto";
 
@@ -259,7 +258,6 @@ export default function CameraCapture({ table }: { table: number }) {
 
       {stage === "done" && (
         <div className="flex flex-col items-center gap-4 py-6 text-center">
-          <MickeyEars className="h-8 w-11" />
           {photoUrl && (
             <PhotoFrame className="aspect-square w-48 sm:w-56">
               {/* eslint-disable-next-line @next/next/no-img-element */}
