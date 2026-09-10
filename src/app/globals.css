@@ -22,6 +22,7 @@
   --color-ink: #5a3a44;
   --color-ink-soft: #a67888;
   --color-navy: #1f3a63;
+  --color-burgundy: #7a1f2b;
 }
 
 @theme inline {
@@ -45,6 +46,7 @@
   --color-ink: var(--color-ink);
   --color-ink-soft: var(--color-ink-soft);
   --color-navy: var(--color-navy);
+  --color-burgundy: var(--color-burgundy);
 
   --font-script: var(--font-parisienne);
   --font-display: var(--font-cormorant);

@@ -1,8 +1,8 @@
 import {
   COUPLE_NAMES,
   COUPLE_NAMES_ZH,
-  SCAN_INSTRUCTION_EN,
-  SCAN_INSTRUCTION_ZH,
+  CAPTURE_PROMPT_EN,
+  CAPTURE_PROMPT_ZH,
   WEDDING_DATE_DISPLAY,
 } from "@/lib/config";
 import MickeySilhouette from "./motifs/MickeySilhouette";
@@ -10,6 +10,7 @@ import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
 import HeartDivider from "./motifs/HeartDivider";
 import Heart from "./motifs/Heart";
+import MickeyBubbleFrame from "./motifs/MickeyBubbleFrame";
 
 export default function TableCard({ table }: { table: number }) {
   return (
@@ -30,21 +31,22 @@ export default function TableCard({ table }: { table: number }) {
       <WildflowerSpray className="pointer-events-none absolute right-1 top-1 h-12 w-12 opacity-80" />
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
 
-      <div className="relative z-10 flex flex-col items-center text-center">
-        <p className="font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
-        <p className="mt-0.5 font-zh text-sm font-bold text-ink">{COUPLE_NAMES_ZH}</p>
-        <HeartDivider className="mt-1 h-2 w-12 text-gold-light" />
-        <p className="mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
+      <div className="relative z-10 inline-flex flex-col items-center px-5 py-2.5 text-center">
+        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+1.5rem)]" />
+        <p className="relative font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
+        <p className="relative mt-0.5 font-zh text-sm font-bold text-ink">{COUPLE_NAMES_ZH}</p>
+        <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
+        <p className="relative mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
           {WEDDING_DATE_DISPLAY}
         </p>
       </div>
 
-      <div className="relative z-10 flex w-full items-start justify-center gap-2 px-1">
-        <p className="flex-1 text-center font-display text-[9px] italic leading-snug text-ink-soft">
-          {SCAN_INSTRUCTION_EN}
+      <div className="relative z-10 flex flex-col items-center gap-1 px-3">
+        <p className="text-center font-display text-[10px] italic leading-snug text-burgundy">
+          {CAPTURE_PROMPT_EN}
         </p>
-        <p className="flex-1 text-center font-zh text-[9px] font-bold leading-snug text-pink-dark">
-          {SCAN_INSTRUCTION_ZH}
+        <p className="text-center font-zh text-[10px] font-bold leading-snug text-burgundy">
+          {CAPTURE_PROMPT_ZH}
         </p>
       </div>
 

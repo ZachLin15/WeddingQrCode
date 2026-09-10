@@ -53,7 +53,10 @@ function doGet(e) {
         id: file.getId(),
         createdAt: file.getDateCreated().getTime(),
         thumbnailUrl: 'https://drive.google.com/thumbnail?id=' + file.getId() + '&sz=w500',
-        viewUrl: 'https://drive.google.com/uc?export=view&id=' + file.getId(),
+        // The thumbnail endpoint loads much faster/more reliably than
+        // uc?export=view (which can hang or show an interstitial page),
+        // so reuse it at a larger size for the full lightbox view too.
+        viewUrl: 'https://drive.google.com/thumbnail?id=' + file.getId() + '&sz=w1600',
       });
     }
     photos.sort(function (a, b) {

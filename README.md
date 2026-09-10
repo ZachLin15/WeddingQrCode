@@ -1,4 +1,4 @@
-# Kah Yeong & Jia Xin — Wedding Photo Wall
+# Kah Yoong & Jia Xin — Wedding Photo Wall
 
 A guest-facing web app for the 26.9.2026 wedding. Each table has a QR code
 card; scanning it opens a themed page where guests can take a photo right in

@@ -20,6 +20,14 @@ export default function AlbumView({ table }: { table: number }) {
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [errorMsg, setErrorMsg] = useState("");
   const [lightbox, setLightbox] = useState<Photo | null>(null);
+  const [lightboxLoading, setLightboxLoading] = useState(false);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+
+  const openLightbox = (photo: Photo) => {
+    setLightbox(photo);
+    setLightboxSrc(photo.viewUrl);
+    setLightboxLoading(true);
+  };
 
   const fetchAlbum = useCallback(() => {
     return fetch(`/api/album?table=${table}`, { cache: "no-store" })
@@ -89,7 +97,7 @@ export default function AlbumView({ table }: { table: number }) {
             {photos.map((photo) => (
               <button
                 key={photo.id}
-                onClick={() => setLightbox(photo)}
+                onClick={() => openLightbox(photo)}
                 className="aspect-square overflow-hidden rounded-2xl bg-white shadow-[0_8px_20px_-10px_rgba(140,106,58,0.35)]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -117,12 +125,27 @@ export default function AlbumView({ table }: { table: number }) {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
           onClick={() => setLightbox(null)}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={lightbox.viewUrl}
-            alt=""
-            className="max-h-[85dvh] max-w-full rounded-2xl object-contain"
-          />
+          {lightboxLoading && (
+            <div className="absolute h-10 w-10 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+          )}
+          {lightboxSrc && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={lightboxSrc}
+              alt=""
+              onLoad={() => setLightboxLoading(false)}
+              onError={() => {
+                if (lightboxSrc !== lightbox.thumbnailUrl) {
+                  setLightboxSrc(lightbox.thumbnailUrl);
+                } else {
+                  setLightboxLoading(false);
+                }
+              }}
+              className={`max-h-[85dvh] max-w-full rounded-2xl object-contain transition-opacity ${
+                lightboxLoading ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          )}
           <button
             onClick={() => setLightbox(null)}
             aria-label="Close"
