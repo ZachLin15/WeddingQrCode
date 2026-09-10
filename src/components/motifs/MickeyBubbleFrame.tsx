@@ -41,9 +41,9 @@ export default function MickeyBubbleFrame({ className = "", style }: Props) {
           <stop offset="100%" stopColor="#c4ffe8" />
         </linearGradient>
         <radialGradient id={fillId} cx="50%" cy="35%" r="70%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
-          <stop offset="70%" stopColor="#ffffff" stopOpacity="0.18" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0.05" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+          <stop offset="70%" stopColor="#ffffff" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0.25" />
         </radialGradient>
         <filter id={blurId} x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" />
@@ -59,7 +59,7 @@ export default function MickeyBubbleFrame({ className = "", style }: Props) {
         <ellipse cx="60" cy="45" rx="40" ry="18" fill="#ffffff" opacity="0.6" transform="rotate(-25 60 45)" />
       </g>
 
-      <path d={MICKEY_D} fill="none" stroke={`url(#${rimId})`} strokeOpacity="0.65" strokeWidth="2" />
+      <path d={MICKEY_D} fill="none" stroke={`url(#${rimId})`} strokeOpacity="0.9" strokeWidth="3" />
     </svg>
   );
 }
