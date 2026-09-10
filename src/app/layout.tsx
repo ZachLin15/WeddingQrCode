@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Parisienne, Cormorant_Garamond, Jost, Noto_Serif_SC } from "next/font/google";
+import { COUPLE_NAMES, WEDDING_DATE_DISPLAY } from "@/lib/config";
 import "./globals.css";
 
 const parisienne = Parisienne({
@@ -27,8 +28,8 @@ const notoSerifSC = Noto_Serif_SC({
 });
 
 export const metadata: Metadata = {
-  title: "Kah Yeong & Jia Xin | 26.9.2026",
-  description: "Share your photos from Kah Yeong & Jia Xin's wedding celebration.",
+  title: `${COUPLE_NAMES} | ${WEDDING_DATE_DISPLAY}`,
+  description: `Share your photos from ${COUPLE_NAMES}'s wedding celebration.`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

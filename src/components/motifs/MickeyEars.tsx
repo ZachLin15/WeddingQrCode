@@ -60,8 +60,8 @@ export default function MickeyEars({ className = "", style }: Props) {
         <ellipse cx="198" cy="118" rx="30" ry="12" fill="#ffffff" opacity="0.35" transform="rotate(-28 198 118)" />
       </g>
 
-      <circle cx="80" cy="75" r="67" fill="none" stroke="#ffffff" strokeOpacity="0.8" strokeWidth="1" />
-      <circle cx="180" cy="75" r="67" fill="none" stroke="#ffffff" strokeOpacity="0.8" strokeWidth="1" />
+      <circle cx="80" cy="75" r="67" fill="none" stroke="#d9a66c" strokeOpacity="0.55" strokeWidth="2" />
+      <circle cx="180" cy="75" r="67" fill="none" stroke="#d9a66c" strokeOpacity="0.55" strokeWidth="2" />
     </svg>
   );
 }
