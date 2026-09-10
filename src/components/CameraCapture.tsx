@@ -210,18 +210,19 @@ export default function CameraCapture({ table }: { table: number }) {
               </button>
             )}
           </div>
-          <div className="flex w-full items-center justify-center gap-8">
+          <div className="grid w-full grid-cols-3 items-center">
             <button
               onClick={() => {
                 stopStream();
                 setStage("idle");
               }}
-              className="font-sans text-xs tracking-[0.25em] text-ink-soft uppercase"
+              className="justify-self-start font-sans text-xs tracking-[0.25em] text-ink-soft uppercase"
             >
               Cancel
             </button>
-            <ShutterButton onClick={capturePhoto} label="Capture" compact />
-            <span className="w-[3ch]" aria-hidden="true" />
+            <div className="justify-self-center">
+              <ShutterButton onClick={capturePhoto} label="Capture" compact />
+            </div>
           </div>
         </div>
       )}
