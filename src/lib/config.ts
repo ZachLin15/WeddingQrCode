@@ -9,4 +9,4 @@ export const SCAN_INSTRUCTION_ZH = "请扫描您桌上的二维码，与我们�
 
 export const CAPTURE_PROMPT_EN =
   "Capture a memory from your table — it'll land straight in our wedding album.";
-export const CAPTURE_PROMPT_ZH = "捕捉属于您餐桌的美好回忆，将直接收录进我们的婚礼相册。";
+export const CAPTURE_PROMPT_ZH = "留住这美好的一刻，一起珍藏进我们的婚礼相册吧！";
