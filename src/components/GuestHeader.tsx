@@ -6,7 +6,7 @@ export default function GuestHeader() {
   return (
     <div className="relative flex w-full flex-col items-center px-2 pt-2 text-center">
       <div className="relative top-px mt-4 inline-flex flex-col items-center px-8 py-8">
-        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-5 -inset-y-6 h-[calc(100%+3rem)] w-[calc(100%+2.5rem)]" />
+        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-5 -top-6 -bottom-12 h-[calc(100%+4.5rem)] w-[calc(100%+2.5rem)]" />
         <h1 className="relative whitespace-nowrap font-script text-gold-dark text-[clamp(1.5rem,7.8vw,3rem)] leading-tight">
           {COUPLE_NAMES}
         </h1>

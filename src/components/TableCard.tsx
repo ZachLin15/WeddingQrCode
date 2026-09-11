@@ -32,7 +32,7 @@ export default function TableCard({ table }: { table: number }) {
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
 
       <div className="relative top-px z-10 mt-3 inline-flex flex-col items-center px-5 py-4 text-center">
-        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -inset-y-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)]" />
+        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -top-3 -bottom-8 h-[calc(100%+2.75rem)] w-[calc(100%+1.5rem)]" />
         <p className="relative font-script text-2xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
         <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
         <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
