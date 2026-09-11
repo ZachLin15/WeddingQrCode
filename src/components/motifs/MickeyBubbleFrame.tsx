@@ -10,7 +10,7 @@ type Props = {
 // Two ears + head, boolean-unioned via circle-intersection geometry into one
 // seamless outline (same technique as the earlier Mickey silhouette work).
 const MICKEY_D =
-  "M 47.35 123.03 A 60 60 0 1 1 124.82 54.16 A 84 84 0 0 1 135.18 54.16 A 60 60 0 1 1 212.65 123.03 A 84 84 0 1 1 47.35 123.03 Z";
+  "M 47.37 122.87 A 60 60 0 1 1 125.31 54.13 A 84 84 0 0 1 134.69 54.13 A 60 60 0 1 1 212.63 122.87 A 84 84 0 1 1 47.37 122.87 Z";
 
 /**
  * Very pale, translucent "soap bubble" Mickey silhouette with an iridescent
