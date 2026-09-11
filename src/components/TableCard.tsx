@@ -42,10 +42,10 @@ export default function TableCard({ table }: { table: number }) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-1 px-3">
-        <p className="text-center font-display text-[12px] italic leading-snug text-burgundy">
+        <p className="text-center font-display text-[14px] italic leading-snug text-burgundy">
           {CAPTURE_PROMPT_EN}
         </p>
-        <p className="text-center font-zh text-[12px] font-bold leading-snug text-burgundy">
+        <p className="text-center font-zh text-[14px] font-bold leading-snug text-burgundy">
           {CAPTURE_PROMPT_ZH}
         </p>
       </div>
