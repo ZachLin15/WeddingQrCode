@@ -33,8 +33,8 @@ export default function TableCard({ table }: { table: number }) {
 
       <div className="relative z-10 mt-3 inline-flex flex-col items-center px-5 py-4 text-center">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -inset-y-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)]" />
-        <p className="relative font-script text-xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
-        <p className="relative mt-0.5 font-zh text-sm font-bold text-ink">{COUPLE_NAMES_ZH}</p>
+        <p className="relative font-script text-2xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
+        <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
         <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
         <p className="relative mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
           {WEDDING_DATE_DISPLAY}
@@ -42,10 +42,10 @@ export default function TableCard({ table }: { table: number }) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-1 px-3">
-        <p className="text-center font-display text-[10px] italic leading-snug text-burgundy">
+        <p className="text-center font-display text-[12px] italic leading-snug text-burgundy">
           {CAPTURE_PROMPT_EN}
         </p>
-        <p className="text-center font-zh text-[10px] font-bold leading-snug text-burgundy">
+        <p className="text-center font-zh text-[12px] font-bold leading-snug text-burgundy">
           {CAPTURE_PROMPT_ZH}
         </p>
       </div>

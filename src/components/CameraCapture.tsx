@@ -183,8 +183,8 @@ export default function CameraCapture({ table }: { table: number }) {
       {stage === "idle" && (
         <div className="flex flex-col items-center gap-6 py-6">
           <div className="flex flex-col items-center gap-1.5 px-4">
-            <p className="text-center font-display text-lg text-ink/80">{CAPTURE_PROMPT_EN}</p>
-            <p className="text-center font-zh text-sm text-ink-soft">{CAPTURE_PROMPT_ZH}</p>
+            <p className="text-center font-display text-xl text-ink/80">{CAPTURE_PROMPT_EN}</p>
+            <p className="text-center font-zh text-base text-ink-soft">{CAPTURE_PROMPT_ZH}</p>
           </div>
           <ShutterButton onClick={startLiveCamera} label="Take a Photo" />
         </div>
