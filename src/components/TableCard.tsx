@@ -41,7 +41,7 @@ export default function TableCard({ table }: { table: number }) {
         </div>
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-1 px-3">
+      <div className="relative z-10 flex flex-col items-center gap-1">
         <p className="text-center font-display text-[14px] italic leading-snug text-burgundy">
           {CAPTURE_PROMPT_EN.split(" — ").map((line, i, arr) => (
             <span key={i} className="block whitespace-nowrap">
@@ -50,7 +50,7 @@ export default function TableCard({ table }: { table: number }) {
             </span>
           ))}
         </p>
-        <p className="text-center font-zh text-[14px] font-bold leading-snug text-burgundy">
+        <p className="text-center font-zh text-[14px] font-bold leading-snug whitespace-nowrap text-burgundy">
           {CAPTURE_PROMPT_ZH}
         </p>
       </div>
