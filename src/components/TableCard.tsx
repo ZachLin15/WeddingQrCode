@@ -1,7 +1,7 @@
 import {
   COUPLE_NAMES_ZH,
-  CAPTURE_PROMPT_EN,
-  CAPTURE_PROMPT_ZH,
+  CARD_PROMPT_EN,
+  CARD_PROMPT_ZH,
 } from "@/lib/config";
 import CoupleNames from "./CoupleNames";
 import MickeySilhouette from "./motifs/MickeySilhouette";
@@ -42,16 +42,19 @@ export default function TableCard({ table }: { table: number }) {
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-1">
-        <p className="text-center font-display text-[14px] italic leading-snug text-burgundy">
-          {CAPTURE_PROMPT_EN.split(" — ").map((line, i, arr) => (
-            <span key={i} className="block whitespace-nowrap">
+        <p className="text-center font-display text-[12.5px] italic leading-snug text-burgundy">
+          {CARD_PROMPT_EN.map((line) => (
+            <span key={line} className="block whitespace-nowrap">
               {line}
-              {i < arr.length - 1 ? " —" : ""}
             </span>
           ))}
         </p>
-        <p className="text-center font-zh text-[14px] font-bold leading-snug whitespace-nowrap text-burgundy">
-          {CAPTURE_PROMPT_ZH}
+        <p className="text-center font-zh text-[14px] font-bold leading-snug text-burgundy">
+          {CARD_PROMPT_ZH.map((line) => (
+            <span key={line} className="block whitespace-nowrap">
+              {line}
+            </span>
+          ))}
         </p>
       </div>
 
