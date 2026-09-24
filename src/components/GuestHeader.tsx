@@ -1,5 +1,4 @@
 import CoupleNames from "./CoupleNames";
-import CoupleNamesZh from "./CoupleNamesZh";
 import HeartDivider from "./motifs/HeartDivider";
 import MickeyBubbleFrame from "./motifs/MickeyBubbleFrame";
 
@@ -9,12 +8,9 @@ export default function GuestHeader() {
       <div className="relative top-px mt-4 inline-flex flex-col items-center px-8 py-8">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-5 -top-20 -bottom-40 h-[calc(100%+15rem)] w-[calc(100%+2.5rem)]" />
         <h1 className="relative whitespace-nowrap font-script text-gold-dark text-[clamp(1.875rem,9.75vw,3.75rem)] leading-tight">
-          <CoupleNames />
+          <CoupleNames zhClassName="mt-3 text-xl sm:text-2xl" />
         </h1>
-        <div className="relative top-5 flex flex-col items-center">
-          <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl"><CoupleNamesZh /></p>
-          <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light sm:w-24" />
-        </div>
+        <HeartDivider className="relative mt-4 h-2.5 w-20 text-gold-light sm:w-24" />
       </div>
     </div>
   );

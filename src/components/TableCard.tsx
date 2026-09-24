@@ -3,7 +3,6 @@ import {
   CARD_PROMPT_ZH,
 } from "@/lib/config";
 import CoupleNames from "./CoupleNames";
-import CoupleNamesZh from "./CoupleNamesZh";
 import MickeySilhouette from "./motifs/MickeySilhouette";
 import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
@@ -33,12 +32,9 @@ export default function TableCard({ table }: { table: number }) {
       <div className="relative top-px z-10 mt-3 mb-[4.5rem] inline-flex flex-col items-center px-5 py-4 text-center">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -top-9 -bottom-20 h-[calc(100%+7.25rem)] w-[calc(100%+1.5rem)]" />
         <p className="relative text-[30px] leading-tight text-gold-dark">
-          <CoupleNames />
+          <CoupleNames zhClassName="mt-2 text-base" />
         </p>
-        <div className="relative top-3.5 flex flex-col items-center">
-          <p className="relative mt-0.5 font-zh text-base font-bold text-ink"><CoupleNamesZh /></p>
-          <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
-        </div>
+        <HeartDivider className="relative mt-3 h-2 w-12 text-gold-light" />
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-1">
