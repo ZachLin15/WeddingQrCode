@@ -1,9 +1,9 @@
 import {
-  COUPLE_NAMES_ZH,
   CARD_PROMPT_EN,
   CARD_PROMPT_ZH,
 } from "@/lib/config";
 import CoupleNames from "./CoupleNames";
+import CoupleNamesZh from "./CoupleNamesZh";
 import MickeySilhouette from "./motifs/MickeySilhouette";
 import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
@@ -36,7 +36,7 @@ export default function TableCard({ table }: { table: number }) {
           <CoupleNames />
         </p>
         <div className="relative top-3.5 flex flex-col items-center">
-          <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
+          <p className="relative mt-0.5 font-zh text-base font-bold text-ink"><CoupleNamesZh /></p>
           <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
         </div>
       </div>

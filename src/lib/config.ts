@@ -1,7 +1,8 @@
 export const COUPLE_FIRST = "Kah Yoong";
 export const COUPLE_SECOND = "Jia Xin";
 export const COUPLE_NAMES = `${COUPLE_FIRST} & ${COUPLE_SECOND}`;
-export const COUPLE_NAMES_ZH = "家荣 和 家心";
+export const COUPLE_ZH_FIRST = "家荣";
+export const COUPLE_ZH_SECOND = "家心";
 export const WEDDING_DATE_DISPLAY = "26.9.2026";
 export const TABLE_COUNT = 60;
 

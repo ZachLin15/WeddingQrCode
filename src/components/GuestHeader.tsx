@@ -1,5 +1,5 @@
-import { COUPLE_NAMES_ZH } from "@/lib/config";
 import CoupleNames from "./CoupleNames";
+import CoupleNamesZh from "./CoupleNamesZh";
 import HeartDivider from "./motifs/HeartDivider";
 import MickeyBubbleFrame from "./motifs/MickeyBubbleFrame";
 
@@ -12,7 +12,7 @@ export default function GuestHeader() {
           <CoupleNames />
         </h1>
         <div className="relative top-5 flex flex-col items-center">
-          <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl">{COUPLE_NAMES_ZH}</p>
+          <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl"><CoupleNamesZh /></p>
           <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light sm:w-24" />
         </div>
       </div>
