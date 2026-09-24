@@ -6,7 +6,7 @@
 
 var ROOT_FOLDER_NAME = 'Wedding Photos';
 var MIN_TABLE = 1;
-var MAX_TABLE = 55;
+var MAX_TABLE = 60;
 
 function doPost(e) {
   try {

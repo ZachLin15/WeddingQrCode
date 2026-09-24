@@ -17,7 +17,7 @@ no cost.
    full contents of this repo's `apps-script/Setup.gs`.
 6. Save (Ctrl/Cmd + S).
 
-## 2. Create all 55 table folders (run once)
+## 2. Create all 60 table folders (run once)
 
 1. At the top of the editor, next to the "Run" button, use the function dropdown
    and select `createAllTableFolders`.
@@ -28,7 +28,7 @@ no cost.
    a script you wrote yourself. Click **Advanced** → **Go to Wedding Photo
    Upload (unsafe)** → **Allow**.
 4. Once it finishes, open **View → Logs** (or Executions) to confirm you see
-   `Created Table 1` through `Created Table 55`, and a line with the root
+   `Created Table 1` through `Created Table 60`, and a line with the root
    folder's URL. Open that URL to see all the folders in your Drive, ready to
    receive photos.
 

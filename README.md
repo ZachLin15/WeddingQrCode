@@ -61,7 +61,7 @@ Once you know your production URL:
 SITE_URL=https://jiaxin-wedding.vercel.app node scripts/generate-qr-codes.mjs
 ```
 
-This writes 55 PNGs into `public/qr/`, which are committed to the repo (they're
+This writes 60 PNGs into `public/qr/`, which are committed to the repo (they're
 small, ~5KB each) so Vercel serves them as static files — no build step needed.
 **Commit and push after regenerating** so the deployed site picks up the new
 images. If your domain ever changes, re-run this command and push again.
@@ -76,7 +76,7 @@ images. If your domain ever changes, re-run this command and push again.
 4. Save the PDF and send it to a print shop (or print at home) on cardstock,
    then cut along the dashed lines.
 
-**Before printing all 55**, print one test page and scan the QR code with a
+**Before printing all 60**, print one test page and scan the QR code with a
 couple of different phones from a slight angle, not just straight-on, to
 confirm real-world scannability.
 
@@ -88,7 +88,7 @@ folder in your Google Drive within a few seconds.
 
 ## Changing the number of tables
 
-The table count is currently **55**, set in three places (keep them in sync
+The table count is currently **60**, set in three places (keep them in sync
 if you change it):
 
 - `src/lib/config.ts` → `TABLE_COUNT`
@@ -100,9 +100,9 @@ if you change it):
 
 ```
 src/app/t/[table]/page.tsx     guest-facing page for a given table
-src/app/print/cards/page.tsx   printable sheet of all 55 QR cards
+src/app/print/cards/page.tsx   printable sheet of all 60 QR cards
 src/app/api/upload/route.ts    proxies photo uploads to the Apps Script backend
 src/components/CameraCapture.tsx   the in-app live camera capture flow
-scripts/generate-qr-codes.mjs  generates the 55 QR code PNGs
+scripts/generate-qr-codes.mjs  generates the 60 QR code PNGs
 apps-script/                   the Google Apps Script backend source (deployed separately)
 ```

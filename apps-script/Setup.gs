@@ -5,7 +5,7 @@
  * folders being created if many guests upload at the same table simultaneously.
  */
 
-var SETUP_TABLE_COUNT = 55;
+var SETUP_TABLE_COUNT = 60;
 
 function createAllTableFolders() {
   var root = getOrCreateRootFolder();

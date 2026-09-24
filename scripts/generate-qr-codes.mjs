@@ -2,7 +2,7 @@ import QRCode from "qrcode";
 import fs from "node:fs";
 import path from "node:path";
 
-const TABLE_COUNT = 55;
+const TABLE_COUNT = 60;
 const BASE_URL = (process.env.SITE_URL || "http://localhost:3000").replace(/\/$/, "");
 const OUT_DIR = path.join(process.cwd(), "public", "qr");
 
