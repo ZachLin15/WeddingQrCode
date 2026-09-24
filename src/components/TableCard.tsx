@@ -36,11 +36,13 @@ export default function TableCard({ table }: { table: number }) {
         <p className="relative text-[30px] leading-tight text-gold-dark">
           <CoupleNames />
         </p>
-        <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
-        <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
-        <p className="relative mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
-          {WEDDING_DATE_DISPLAY}
-        </p>
+        <div className="relative top-3.5 flex flex-col items-center">
+          <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
+          <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
+          <p className="relative mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">
+            {WEDDING_DATE_DISPLAY}
+          </p>
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col items-center gap-1 px-3">

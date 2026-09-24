@@ -11,11 +11,13 @@ export default function GuestHeader() {
         <h1 className="relative whitespace-nowrap font-script text-gold-dark text-[clamp(1.875rem,9.75vw,3.75rem)] leading-tight">
           <CoupleNames />
         </h1>
-        <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl">{COUPLE_NAMES_ZH}</p>
-        <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light sm:w-24" />
-        <p className="relative mt-1.5 font-sans text-[10px] tracking-[0.3em] text-ink-soft uppercase sm:text-xs sm:tracking-[0.35em]">
-          {WEDDING_DATE_DISPLAY}
-        </p>
+        <div className="relative top-5 flex flex-col items-center">
+          <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl">{COUPLE_NAMES_ZH}</p>
+          <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light sm:w-24" />
+          <p className="relative mt-1.5 font-sans text-[10px] tracking-[0.3em] text-ink-soft uppercase sm:text-xs sm:tracking-[0.35em]">
+            {WEDDING_DATE_DISPLAY}
+          </p>
+        </div>
       </div>
     </div>
   );
