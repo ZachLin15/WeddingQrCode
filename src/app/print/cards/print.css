@@ -18,15 +18,15 @@
   position: relative;
   box-sizing: border-box;
   border: 0.4mm dashed #cbb89a;
-  padding: 7mm 8mm;
+  padding: 7mm 8mm 4mm;
   overflow: hidden;
   page-break-inside: avoid;
   break-inside: avoid;
 }
 
 .qr-frame {
-  width: 42mm;
-  height: 42mm;
+  width: 40mm;
+  height: 40mm;
 }
 
 .qr-frame img {

@@ -31,7 +31,7 @@ export default function TableCard({ table }: { table: number }) {
       <WildflowerSpray className="pointer-events-none absolute right-1 top-1 h-12 w-12 opacity-80" />
       <GoldButterfly className="pointer-events-none absolute left-2 bottom-14 h-6 w-8 opacity-90" />
 
-      <div className="relative top-px z-10 mt-3 mb-9 inline-flex flex-col items-center px-5 py-4 text-center">
+      <div className="relative top-px z-10 mt-3 mb-[4.5rem] inline-flex flex-col items-center px-5 py-4 text-center">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -top-9 -bottom-20 h-[calc(100%+7.25rem)] w-[calc(100%+1.5rem)]" />
         <p className="relative text-[30px] leading-tight text-gold-dark">
           <CoupleNames />
