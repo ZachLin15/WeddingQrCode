@@ -1,10 +1,10 @@
 import {
-  COUPLE_NAMES,
   COUPLE_NAMES_ZH,
   CAPTURE_PROMPT_EN,
   CAPTURE_PROMPT_ZH,
   WEDDING_DATE_DISPLAY,
 } from "@/lib/config";
+import CoupleNames from "./CoupleNames";
 import MickeySilhouette from "./motifs/MickeySilhouette";
 import WildflowerSpray from "./motifs/WildflowerSpray";
 import GoldButterfly from "./motifs/GoldButterfly";
@@ -33,7 +33,9 @@ export default function TableCard({ table }: { table: number }) {
 
       <div className="relative top-px z-10 mt-3 mb-9 inline-flex flex-col items-center px-5 py-4 text-center">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -top-9 -bottom-20 h-[calc(100%+7.25rem)] w-[calc(100%+1.5rem)]" />
-        <p className="relative font-script text-2xl leading-tight text-gold-dark">{COUPLE_NAMES}</p>
+        <p className="relative text-[30px] leading-tight text-gold-dark">
+          <CoupleNames />
+        </p>
         <p className="relative mt-0.5 font-zh text-base font-bold text-ink">{COUPLE_NAMES_ZH}</p>
         <HeartDivider className="relative mt-1 h-2 w-12 text-gold-light" />
         <p className="relative mt-0.5 font-sans text-[8px] tracking-[0.3em] text-ink-soft uppercase">

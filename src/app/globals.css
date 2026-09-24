@@ -49,6 +49,8 @@
   --color-burgundy: var(--color-burgundy);
 
   --font-script: var(--font-parisienne);
+  --font-name: var(--font-allura);
+  --font-amp: var(--font-pinyon);
   --font-display: var(--font-cormorant);
   --font-sans: var(--font-jost);
   --font-zh: var(--font-noto-serif-sc);

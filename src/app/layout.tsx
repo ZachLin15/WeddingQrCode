@@ -1,10 +1,29 @@
 import type { Metadata } from "next";
-import { Parisienne, Cormorant_Garamond, Jost, Noto_Serif_SC } from "next/font/google";
+import {
+  Parisienne,
+  Allura,
+  Pinyon_Script,
+  Cormorant_Garamond,
+  Jost,
+  Noto_Serif_SC,
+} from "next/font/google";
 import { COUPLE_NAMES, WEDDING_DATE_DISPLAY } from "@/lib/config";
 import "./globals.css";
 
 const parisienne = Parisienne({
   variable: "--font-parisienne",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const allura = Allura({
+  variable: "--font-allura",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const pinyon = Pinyon_Script({
+  variable: "--font-pinyon",
   subsets: ["latin"],
   weight: "400",
 });
@@ -36,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${parisienne.variable} ${cormorant.variable} ${jost.variable} ${notoSerifSC.variable} h-full antialiased`}
+      className={`${parisienne.variable} ${allura.variable} ${pinyon.variable} ${cormorant.variable} ${jost.variable} ${notoSerifSC.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink">{children}</body>
     </html>
