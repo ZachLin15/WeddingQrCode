@@ -289,7 +289,7 @@ export default function CameraCapture({ table }: { table: number }) {
             href={`/t/${table}/album`}
             className="font-sans text-[11px] tracking-[0.2em] text-ink-soft uppercase underline underline-offset-4"
           >
-            View Table Album
+            View Wedding Album
           </Link>
         </div>
       )}

@@ -2,8 +2,9 @@
 
 A guest-facing web app for the 26.9.2026 wedding. Each table has a QR code
 card; scanning it opens a themed page where guests can take a photo right in
-the browser, which is saved straight into that table's own Google Drive
-folder.
+the browser, which is saved straight into one shared Google Drive folder
+(the table number is kept in each file's name). Everyone can browse the
+whole album on the site, but nobody can delete photos.
 
 ## How it fits together
 
@@ -41,7 +42,7 @@ npm run dev
 
 Visit `http://localhost:3000/t/5` on your phone (same Wi-Fi, use your
 computer's local IP instead of `localhost`) and try taking a photo — check
-that it lands in the "Table 5" folder in Drive.
+that it lands in the shared "All Photos" folder in Drive.
 
 ### 3. Deploy to Vercel
 
@@ -83,7 +84,7 @@ confirm real-world scannability.
 ### 6. Go-live check
 
 Scan one physical printed card → confirm it opens the right table's page on
-your phone → take a test photo → confirm it appears in the matching "Table N"
+your phone → take a test photo → confirm it appears in the "All Photos"
 folder in your Google Drive within a few seconds.
 
 ## Changing the number of tables
@@ -93,8 +94,8 @@ if you change it):
 
 - `src/lib/config.ts` → `TABLE_COUNT`
 - `apps-script/Code.gs` → `MAX_TABLE`
-- `apps-script/Setup.gs` → `SETUP_TABLE_COUNT` (re-run `createAllTableFolders`
-  afterwards to create any new folders)
+- `apps-script/Setup.gs` → `SETUP_TABLE_COUNT` (only used by
+  `moveTablePhotosIntoAllPhotos`)
 
 ## Project structure
 

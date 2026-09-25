@@ -2,7 +2,8 @@
 
 Guest-facing Next.js app for a wedding (26.9.2026). Each table has a QR
 code; scanning it opens `/t/{table}`, where guests take a photo in-browser
-that gets uploaded to that table's own Google Drive folder via a separate
+that gets uploaded to one shared Google Drive folder (table number kept in
+the filename) via a separate
 Google Apps Script backend (see `apps-script/`). `/print/cards` renders all
 60 QR cards for printing.
 

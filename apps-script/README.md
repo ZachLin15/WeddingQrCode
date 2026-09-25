@@ -1,7 +1,7 @@
 # Google Apps Script backend — setup steps
 
-This is the piece that actually saves guest photos into your Google Drive, sorted
-by table. It runs entirely inside your own Google account — no separate server,
+This is the piece that actually saves guest photos into one shared folder in your
+Google Drive. It runs entirely inside your own Google account — no separate server,
 no cost.
 
 ## 1. Create the Apps Script project
@@ -17,10 +17,10 @@ no cost.
    full contents of this repo's `apps-script/Setup.gs`.
 6. Save (Ctrl/Cmd + S).
 
-## 2. Create all 60 table folders (run once)
+## 2. Create the shared photo folder (run once)
 
 1. At the top of the editor, next to the "Run" button, use the function dropdown
-   and select `createAllTableFolders`.
+   and select `createAllPhotosFolder`.
 2. Click **Run**.
 3. Google will ask you to authorize the script (it needs permission to manage
    your Drive). Click **Review permissions** → choose your account → you'll see
@@ -28,9 +28,9 @@ no cost.
    a script you wrote yourself. Click **Advanced** → **Go to Wedding Photo
    Upload (unsafe)** → **Allow**.
 4. Once it finishes, open **View → Logs** (or Executions) to confirm you see
-   `Created Table 1` through `Created Table 60`, and a line with the root
-   folder's URL. Open that URL to see all the folders in your Drive, ready to
-   receive photos.
+   the URL of the **All Photos** folder in your Drive, ready to receive photos.
+5. If you already have photos in older per-table folders (`Table 1` ...), run
+   `moveTablePhotosIntoAllPhotos` once to move them into the shared folder.
 
 ## 3. Deploy as a Web App
 
@@ -54,15 +54,17 @@ The Web app URL stays the same across versions.
 
 ## Notes
 
-- Photos are saved under a single **"Wedding Photos"** folder in your Drive,
-  with one subfolder per table (`Table 1`, `Table 2`, ...).
-- If a table's folder is somehow missing (e.g. you increase the table count
-  later), the script will create it automatically on the first upload.
+- Photos are saved in **Wedding Photos > All Photos** in your Drive. The table
+  number is kept in each filename (`table12-....jpg`) so you can still tell
+  which table took it.
+- Guests can view every photo in the site's album but cannot delete: photos are
+  shared "view only" and the site has no delete option. Only you (the Drive
+  owner) can remove photos.
 - Nothing here costs money — Apps Script Web Apps and Drive storage under your
   own personal Google account are free (subject to your account's normal Drive
   storage quota).
 - **Guest album**: each uploaded photo is set to "Anyone with the link can
-  view" so the app's `/t/{table}/album` page can display it back to guests —
+  view" so the app's `/t/{table}/album` page (shows the whole album) can display it back to guests —
   photos aren't publicly listed/searchable, but anyone who gets a direct link
   could open one. If you already deployed this script before the album
   feature was added, follow "Updating the script later" above to pick up this

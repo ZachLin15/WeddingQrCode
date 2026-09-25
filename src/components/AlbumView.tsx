@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import GuestHeader from "./GuestHeader";
-import TableBadge from "./TableBadge";
 import GuestPageBackground from "./GuestPageBackground";
 
 type Photo = {
@@ -11,6 +10,7 @@ type Photo = {
   thumbnailUrl: string;
   viewUrl: string;
   createdAt: number;
+  table: number | null;
 };
 
 type LoadState = "loading" | "loaded" | "error";
@@ -30,7 +30,7 @@ export default function AlbumView({ table }: { table: number }) {
   };
 
   const fetchAlbum = useCallback(() => {
-    return fetch(`/api/album?table=${table}`, { cache: "no-store" })
+    return fetch("/api/album", { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (data.ok) {
@@ -45,7 +45,7 @@ export default function AlbumView({ table }: { table: number }) {
         setErrorMsg("Couldn't load the album. Please check your connection.");
         setState("error");
       });
-  }, [table]);
+  }, []);
 
   useEffect(() => {
     fetchAlbum();
@@ -60,9 +60,8 @@ export default function AlbumView({ table }: { table: number }) {
     <GuestPageBackground>
       <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-6 px-5 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-6">
         <GuestHeader />
-        <TableBadge table={table} />
         <p className="-mt-2 font-sans text-[11px] tracking-[0.3em] text-ink-soft uppercase">
-          Table Album
+          Wedding Album
         </p>
 
         {state === "loading" && (
@@ -145,6 +144,11 @@ export default function AlbumView({ table }: { table: number }) {
                 lightboxLoading ? "opacity-0" : "opacity-100"
               }`}
             />
+          )}
+          {lightbox.table && !lightboxLoading && (
+            <p className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] rounded-full bg-white/90 px-4 py-1.5 font-sans text-[11px] tracking-[0.25em] text-ink-soft uppercase">
+              Table {lightbox.table}
+            </p>
           )}
           <button
             onClick={() => setLightbox(null)}
