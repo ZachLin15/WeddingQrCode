@@ -19,7 +19,7 @@ export default function GuestHeader() {
           <span className="font-amp block text-[0.8em]">&amp;</span>
           <span className="block">{COUPLE_SECOND}</span>
         </h1>
-        <p className="relative mt-[2.5cqw] font-zh text-[5.6cqw] font-bold text-ink">
+        <p className="relative mt-[2.5cqw] font-zh text-[7.5cqw] font-bold text-ink">
           <CoupleNamesZh />
         </p>
         <HeartDivider className="relative mt-[2.5cqw] h-[3cqw] w-[24cqw] text-gold-light" />
