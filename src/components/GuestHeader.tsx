@@ -1,21 +1,23 @@
-import { CoupleNamesEn, CoupleNamesZh } from "./CoupleNames";
+import { COUPLE_FIRST, COUPLE_SECOND } from "@/lib/config";
+import { CoupleNamesZh } from "./CoupleNames";
 import HeartDivider from "./motifs/HeartDivider";
 import MickeyBubbleFrame from "./motifs/MickeyBubbleFrame";
 
 export default function GuestHeader() {
   return (
-    <div className="relative mb-28 flex w-full flex-col items-center px-2 pt-2 text-center">
-      <div className="relative top-px mt-4 inline-flex flex-col items-center px-8 py-8">
-        <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-1 -top-[4.5rem] -bottom-[8.3rem] h-[calc(100%+12.8rem)] w-[calc(100%+0.5rem)]" />
-        <h1 className="relative -top-1.5 whitespace-nowrap font-script text-gold-dark text-[clamp(1.875rem,9.75vw,3.75rem)] leading-tight">
-          <CoupleNamesEn />
+    <div className="relative -mt-3 -mb-3 w-[min(22rem,calc(100vw-2.5rem))] aspect-[352/375]">
+      <MickeyBubbleFrame className="pointer-events-none absolute inset-0 h-full w-full" />
+      {/* Content sits inside the head circle (below the ears), centred. */}
+      <div className="absolute inset-x-0 top-[24%] bottom-[4%] flex flex-col items-center justify-center text-center">
+        <h1 className="relative font-name text-gold-dark text-[clamp(2rem,10.5vw,2.75rem)] leading-[1.05]">
+          <span className="block">{COUPLE_FIRST}</span>
+          <span className="font-amp block text-[0.8em]">&amp;</span>
+          <span className="block">{COUPLE_SECOND}</span>
         </h1>
-        <div className="relative top-9 flex flex-col items-center">
-          <p className="relative mt-1 font-zh text-xl font-bold text-ink sm:text-2xl">
-            <CoupleNamesZh />
-          </p>
-          <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light sm:w-24" />
-        </div>
+        <p className="relative mt-2 font-zh text-lg font-bold text-ink sm:text-xl">
+          <CoupleNamesZh />
+        </p>
+        <HeartDivider className="relative mt-2 h-2.5 w-20 text-gold-light" />
       </div>
     </div>
   );
