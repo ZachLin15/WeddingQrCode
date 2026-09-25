@@ -1,10 +1,13 @@
 import { COUPLE_FIRST, COUPLE_SECOND, COUPLE_ZH_FIRST, COUPLE_ZH_SECOND } from "@/lib/config";
 
 /**
- * Both languages share one ampersand: the English names sit either side of a
- * Pinyon Script "&", with each Chinese name centred directly beneath its
+ * Default (`shared`): both languages share one Pinyon Script "&" — the English
+ * names sit either side of it with each Chinese name centred beneath its
  * English counterpart. The parent sets the English size; `zhClassName` sets
  * the Chinese size/spacing.
+ *
+ * The website header instead stacks `CoupleNamesEn` and `CoupleNamesZh`, each
+ * language with its own "&".
  */
 export default function CoupleNames({ zhClassName = "" }: { zhClassName?: string }) {
   return (
@@ -16,5 +19,27 @@ export default function CoupleNames({ zhClassName = "" }: { zhClassName?: string
       <span aria-hidden="true" />
       <span className={`font-zh font-bold text-ink ${zhClassName}`}>{COUPLE_ZH_SECOND}</span>
     </span>
+  );
+}
+
+/** English names inline: Allura for the names, Pinyon Script for the ampersand. */
+export function CoupleNamesEn() {
+  return (
+    <>
+      <span className="font-name">{COUPLE_FIRST}</span>
+      <span className="font-amp mx-[0.2em]">&amp;</span>
+      <span className="font-name">{COUPLE_SECOND}</span>
+    </>
+  );
+}
+
+/** Chinese names inline with the same Pinyon Script "&" in place of 和. */
+export function CoupleNamesZh() {
+  return (
+    <>
+      <span>{COUPLE_ZH_FIRST}</span>
+      <span className="font-amp mx-[0.3em] text-[1.3em] font-normal">&amp;</span>
+      <span>{COUPLE_ZH_SECOND}</span>
+    </>
   );
 }
