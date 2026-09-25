@@ -10,7 +10,7 @@ import MickeyBubbleFrame from "./motifs/MickeyBubbleFrame";
  */
 export default function GuestHeader() {
   return (
-    <div className="relative aspect-[352/375] w-[min(18rem,calc(100vw-2.5rem),32dvh)] [container-type:inline-size]">
+    <div className="relative aspect-[352/375] mt-3 w-[min(19rem,calc(100vw-2.5rem),34dvh)] [container-type:inline-size]">
       <MickeyBubbleFrame className="pointer-events-none absolute inset-0 h-full w-full" />
       {/* Content sits inside the head circle (below the ears), centred. */}
       <div className="absolute inset-x-0 top-[21%] bottom-[7%] flex flex-col items-center justify-center text-center">
