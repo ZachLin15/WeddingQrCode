@@ -31,10 +31,26 @@ function doPost(e) {
     var bytes = Utilities.base64Decode(data.base64);
     var blob = Utilities.newBlob(bytes, data.mimeType || 'image/jpeg', data.filename);
     var file = folder.createFile(blob);
-    // Let the guest album display this photo without needing to sign in.
-    file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    var fileId = file.getId();
 
-    return jsonResponse({ ok: true, fileId: file.getId(), fileUrl: file.getUrl() });
+    // The photo is saved at this point. Anything below is best-effort, so a
+    // hiccup here must never turn a successful upload into an error for the
+    // guest (which would also make them retry and create duplicates).
+    var warning = null;
+    try {
+      // Let the guest album display this photo without needing to sign in.
+      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+    } catch (shareErr) {
+      warning = 'sharing: ' + (shareErr && shareErr.message ? shareErr.message : 'failed');
+    }
+
+    var result = {
+      ok: true,
+      fileId: fileId,
+      fileUrl: 'https://drive.google.com/file/d/' + fileId + '/view',
+    };
+    if (warning) result.warning = warning;
+    return jsonResponse(result);
   } catch (err) {
     return jsonResponse({ ok: false, error: err && err.message ? err.message : 'Unknown error' });
   }
