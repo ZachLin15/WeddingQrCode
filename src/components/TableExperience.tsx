@@ -1,18 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import GuestHeader from "./GuestHeader";
 import TableBadge from "./TableBadge";
-import CameraCapture from "./CameraCapture";
+import CameraCapture, { type Stage } from "./CameraCapture";
 import GuestPageBackground from "./GuestPageBackground";
 
 export default function TableExperience({ table }: { table: number }) {
+  const [stage, setStage] = useState<Stage>("idle");
+
   return (
     <GuestPageBackground>
-      <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-7 px-5 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-6">
-        <GuestHeader />
-        <TableBadge table={table} />
-        <CameraCapture table={table} />
+      <div className="relative mx-auto flex h-[calc(100dvh-6px)] w-full max-w-md flex-col items-center justify-between gap-3 overflow-hidden px-5 pt-[max(1.25rem,env(safe-area-inset-top))] pb-[max(1rem,env(safe-area-inset-bottom))] sm:px-6">
+        {/* The bubble header only shows on the idle screen; the camera/preview
+            screens need the room, so the page never has to scroll. */}
+        {stage === "idle" && <GuestHeader />}
+        <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-3">
+          <TableBadge table={table} />
+          <CameraCapture table={table} onStageChange={setStage} />
+        </div>
 
         <Link
           href={`/t/${table}/album`}

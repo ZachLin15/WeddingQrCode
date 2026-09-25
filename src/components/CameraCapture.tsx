@@ -8,7 +8,7 @@ import { compressImage } from "@/lib/compressImage";
 import { uploadPhoto } from "@/lib/uploadPhoto";
 import { CAPTURE_PROMPT_EN, CAPTURE_PROMPT_ZH } from "@/lib/config";
 
-type Stage = "idle" | "live" | "preview" | "uploading" | "done" | "error";
+export type Stage = "idle" | "live" | "preview" | "uploading" | "done" | "error";
 type FacingMode = "environment" | "user";
 
 const LOADING_MESSAGES = [
@@ -17,8 +17,18 @@ const LOADING_MESSAGES = [
   "Adding a touch of magic...",
 ];
 
-export default function CameraCapture({ table }: { table: number }) {
-  const [stage, setStage] = useState<Stage>("idle");
+export default function CameraCapture({
+  table,
+  onStageChange,
+}: {
+  table: number;
+  onStageChange?: (stage: Stage) => void;
+}) {
+  const [stage, setStageState] = useState<Stage>("idle");
+  const setStage = (next: Stage) => {
+    setStageState(next);
+    onStageChange?.(next);
+  };
   const [errorMsg, setErrorMsg] = useState("");
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [facingMode, setFacingMode] = useState<FacingMode>("environment");
@@ -181,7 +191,7 @@ export default function CameraCapture({ table }: { table: number }) {
       <canvas ref={canvasRef} className="hidden" />
 
       {stage === "idle" && (
-        <div className="flex flex-col items-center gap-6 py-6">
+        <div className="flex flex-col items-center gap-4 py-2">
           <div className="flex flex-col items-center gap-1.5 px-4">
             <p className="text-center font-display text-xl text-ink/80">
               {CAPTURE_PROMPT_EN.split(" — ").map((line, i, arr) => (
