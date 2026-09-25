@@ -31,7 +31,7 @@ export default function TableCard({ table }: { table: number }) {
 
       <div className="relative top-px z-10 mt-3 mb-[4.5rem] inline-flex flex-col items-center px-5 py-4 text-center">
         <MickeyBubbleFrame className="pointer-events-none absolute -inset-x-3 -top-9 -bottom-20 h-[calc(100%+7.25rem)] w-[calc(100%+1.5rem)]" />
-        <p className="relative text-[30px] leading-tight text-gold-dark">
+        <p className="relative -top-1.5 text-[30px] leading-tight text-gold-dark">
           <CoupleNames zhClassName="mt-2 text-base" />
         </p>
         <HeartDivider className="relative mt-3 h-2 w-12 text-gold-light" />
