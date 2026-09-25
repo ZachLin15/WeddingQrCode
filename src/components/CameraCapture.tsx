@@ -277,29 +277,35 @@ export default function CameraCapture({
       )}
 
       {stage === "done" && (
-        <div className="flex flex-col items-center gap-4 py-6 text-center">
+        <div className="flex flex-col items-center gap-2.5 py-2 text-center">
           {photoUrl && (
-            <PhotoFrame className="aspect-square w-48 sm:w-56">
+            <PhotoFrame className="aspect-square w-36 sm:w-44">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={photoUrl} alt="The photo you just took" className="h-full w-full object-cover" />
             </PhotoFrame>
           )}
-          <GoldButterfly className="h-10 w-14" />
-          <h2 className="font-script text-3xl text-pink-dark">Thank you!</h2>
-          <p className="font-display text-lg text-ink/80 px-4">
-            Your photo has been added to our wedding album.
-          </p>
+          <GoldButterfly className="h-8 w-12" />
+          <h2 className="font-script text-3xl leading-none text-pink-dark">Thank you!</h2>
+          <p className="font-zh text-lg font-bold text-pink-dark">谢谢您！</p>
+          <div className="flex flex-col items-center gap-0.5 px-4">
+            <p className="font-display text-lg text-ink/80">
+              Your photo has been added to our wedding album.
+            </p>
+            <p className="font-zh text-sm text-ink-soft">您的照片已加入我们的婚礼相册。</p>
+          </div>
           <button
             onClick={takeAnother}
-            className="mt-2 rounded-full bg-pink px-8 py-3.5 font-sans text-xs tracking-[0.2em] text-white uppercase shadow-md shadow-pink/40"
+            className="mt-1 flex flex-col items-center rounded-full bg-pink px-8 py-2.5 text-white shadow-md shadow-pink/40"
           >
-            Take Another Photo
+            <span className="font-sans text-xs tracking-[0.2em] uppercase">Take Another Photo</span>
+            <span className="font-zh text-xs">再拍一张</span>
           </button>
           <Link
             href={`/t/${table}/album`}
-            className="font-sans text-[11px] tracking-[0.2em] text-ink-soft uppercase underline underline-offset-4"
+            className="flex flex-col items-center text-ink-soft underline underline-offset-4"
           >
-            View Wedding Album
+            <span className="font-sans text-[11px] tracking-[0.2em] uppercase">View Wedding Album</span>
+            <span className="font-zh text-xs">查看婚礼相册</span>
           </Link>
         </div>
       )}

@@ -17,17 +17,19 @@ export default function TableExperience({ table }: { table: number }) {
             screens need the room, so the page never has to scroll. */}
         {stage === "idle" && <GuestHeader />}
         <div className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-3">
-          <TableBadge table={table} />
+          {stage !== "done" && <TableBadge table={table} />}
           <CameraCapture table={table} onStageChange={setStage} />
         </div>
 
-        <Link
-          href={`/t/${table}/album`}
-          className="inline-flex items-center gap-2 rounded-full border border-pink-light/60 bg-white/70 px-5 py-2 font-sans text-[11px] tracking-[0.25em] text-pink-dark uppercase shadow-sm backdrop-blur-sm"
-        >
-          <AlbumIcon className="h-4 w-4" />
-          View Album
-        </Link>
+        {stage !== "done" && (
+          <Link
+            href={`/t/${table}/album`}
+            className="inline-flex items-center gap-2 rounded-full border border-pink-light/60 bg-white/70 px-5 py-2 font-sans text-[11px] tracking-[0.25em] text-pink-dark uppercase shadow-sm backdrop-blur-sm"
+          >
+            <AlbumIcon className="h-4 w-4" />
+            View Album
+          </Link>
+        )}
       </div>
     </GuestPageBackground>
   );
