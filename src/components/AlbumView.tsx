@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { Bi, BilingualMessage, Zh } from "./Bilingual";
 import GuestHeader from "./GuestHeader";
 import GuestPageBackground from "./GuestPageBackground";
 
@@ -37,12 +38,12 @@ export default function AlbumView({ table }: { table: number }) {
           setPhotos(data.photos ?? []);
           setState("loaded");
         } else {
-          setErrorMsg(data.error || "Couldn't load the album.");
+          setErrorMsg(data.error || "Couldn't load the album. | 无法加载相册。");
           setState("error");
         }
       })
       .catch(() => {
-        setErrorMsg("Couldn't load the album. Please check your connection.");
+        setErrorMsg("Couldn't load the album. Please check your connection. | 无法加载相册，请检查网络连接。");
         setState("error");
       });
   }, []);
@@ -61,33 +62,31 @@ export default function AlbumView({ table }: { table: number }) {
       <div className="relative mx-auto flex min-h-dvh w-full max-w-md flex-col items-center gap-6 px-5 pt-[max(2.5rem,env(safe-area-inset-top))] pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-6">
         <GuestHeader />
         <p className="-mt-2 font-sans text-[11px] tracking-[0.3em] text-ink-soft uppercase">
-          Wedding Album
+          Wedding Album <Zh>婚礼相册</Zh>
         </p>
 
         {state === "loading" && (
           <div className="flex flex-col items-center gap-4 py-14">
             <div className="h-10 w-10 animate-spin rounded-full border-2 border-pink-light border-t-pink" />
-            <p className="font-display text-lg text-ink-soft">Gathering your photos...</p>
+            <Bi en="Gathering your photos..." zh="正在加载照片…" enClassName="font-display text-lg text-ink-soft" zhClassName="text-sm text-ink-soft" />
           </div>
         )}
 
         {state === "error" && (
           <div className="flex flex-col items-center gap-4 py-10 text-center">
-            <p className="font-display text-lg text-ink/80 px-4">{errorMsg}</p>
+            <BilingualMessage text={errorMsg} />
             <button
               onClick={retry}
               className="rounded-full bg-pink px-6 py-3 font-sans text-xs tracking-[0.2em] text-white uppercase shadow-md shadow-pink/40"
             >
-              Retry
+              <Bi en="Retry" zh="重试" enClassName="tracking-[0.2em] uppercase" />
             </button>
           </div>
         )}
 
         {state === "loaded" && photos.length === 0 && (
           <div className="flex flex-col items-center gap-4 py-10 text-center">
-            <p className="font-display text-lg text-ink/80 px-4">
-              No photos yet &mdash; be the first to add one!
-            </p>
+            <BilingualMessage text="No photos yet — be the first to add one! | 还没有照片——快来上传第一张吧！" />
           </div>
         )}
 
@@ -115,7 +114,7 @@ export default function AlbumView({ table }: { table: number }) {
           href={`/t/${table}`}
           className="mt-2 rounded-full border border-pink-light/70 bg-white/80 px-6 py-3 font-sans text-xs tracking-[0.2em] text-ink-soft uppercase"
         >
-          Back to Camera
+          Back to Camera <Zh>返回相机</Zh>
         </Link>
       </div>
 
@@ -147,7 +146,7 @@ export default function AlbumView({ table }: { table: number }) {
           )}
           {lightbox.table && !lightboxLoading && (
             <p className="absolute bottom-[max(1.25rem,env(safe-area-inset-bottom))] rounded-full bg-white/90 px-4 py-1.5 font-sans text-[11px] tracking-[0.25em] text-ink-soft uppercase">
-              Table {lightbox.table}
+              Table {lightbox.table} <Zh>第{lightbox.table}桌</Zh>
             </p>
           )}
           <button

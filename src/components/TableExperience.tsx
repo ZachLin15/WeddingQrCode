@@ -27,7 +27,7 @@ export default function TableExperience({ table }: { table: number }) {
             className="inline-flex items-center gap-2 rounded-full border border-pink-light/60 bg-white/70 px-5 py-2 font-sans text-[11px] tracking-[0.25em] text-pink-dark uppercase shadow-sm backdrop-blur-sm"
           >
             <AlbumIcon className="h-4 w-4" />
-            View Album
+            View Album <span className="font-zh font-bold tracking-normal normal-case">相册</span>
           </Link>
         )}
       </div>

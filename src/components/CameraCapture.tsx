@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Bi, BilingualMessage, Zh } from "./Bilingual";
 import PhotoFrame from "./motifs/PhotoFrame";
 import GoldButterfly from "./motifs/GoldButterfly";
 import { compressImage } from "@/lib/compressImage";
@@ -12,9 +13,9 @@ export type Stage = "idle" | "live" | "preview" | "uploading" | "done" | "error"
 type FacingMode = "environment" | "user";
 
 const LOADING_MESSAGES = [
-  "Sprinkling a little gold dust...",
-  "Tucking your photo into the memory box...",
-  "Adding a touch of magic...",
+  { en: "Sprinkling a little gold dust...", zh: "正在撒上一点金粉…" },
+  { en: "Tucking your photo into the memory box...", zh: "正在把您的照片放进回忆盒…" },
+  { en: "Adding a touch of magic...", zh: "正在添加一点魔法…" },
 ];
 
 export default function CameraCapture({
@@ -162,7 +163,7 @@ export default function CameraCapture({
         setStage("error");
       }
     } catch {
-      setErrorMsg("Something went wrong preparing your photo. Please try again.");
+      setErrorMsg("Something went wrong preparing your photo. Please try again. | 处理照片时出错，请重试。");
       setStage("error");
     }
   };
@@ -203,7 +204,7 @@ export default function CameraCapture({
             </p>
             <p className="text-center font-zh text-base text-ink-soft">{CAPTURE_PROMPT_ZH}</p>
           </div>
-          <ShutterButton onClick={startLiveCamera} label="Take a Photo" />
+          <ShutterButton onClick={startLiveCamera} label="Take a Photo" zh="拍照" />
         </div>
       )}
 
@@ -222,7 +223,7 @@ export default function CameraCapture({
             {canFlip && (
               <button
                 onClick={flipCamera}
-                aria-label="Flip camera"
+                aria-label="Flip camera 翻转镜头"
                 className="absolute top-3 right-3 flex h-11 w-11 items-center justify-center rounded-full bg-white/80 text-pink-dark shadow-md backdrop-blur-sm transition active:scale-95"
               >
                 <FlipCameraIcon className="h-5 w-5" />
@@ -237,10 +238,10 @@ export default function CameraCapture({
               }}
               className="justify-self-start font-sans text-xs tracking-[0.25em] text-ink-soft uppercase"
             >
-              Cancel
+              Cancel <Zh>取消</Zh>
             </button>
             <div className="justify-self-center">
-              <ShutterButton onClick={capturePhoto} label="Capture" compact />
+              <ShutterButton onClick={capturePhoto} label="Capture" zh="拍摄" compact />
             </div>
           </div>
         </div>
@@ -257,13 +258,13 @@ export default function CameraCapture({
               onClick={retake}
               className="flex-1 rounded-full border border-pink-light/70 bg-white/80 py-3.5 font-sans text-xs tracking-[0.2em] text-ink-soft uppercase"
             >
-              Retake
+              <Bi en="Retake" zh="重拍" enClassName="tracking-[0.2em] uppercase" />
             </button>
             <button
               onClick={runUpload}
               className="flex-1 rounded-full bg-pink py-3.5 font-sans text-xs tracking-[0.2em] text-white uppercase shadow-md shadow-pink/40"
             >
-              Use This Photo
+              <Bi en="Use This Photo" zh="使用这张照片" enClassName="tracking-[0.2em] uppercase" />
             </button>
           </div>
         </div>
@@ -272,7 +273,7 @@ export default function CameraCapture({
       {stage === "uploading" && (
         <div className="flex flex-col items-center gap-4 py-14">
           <div className="h-10 w-10 animate-spin rounded-full border-2 border-pink-light border-t-pink" />
-          <p className="font-display text-lg text-ink-soft">{loadingMsg}</p>
+          <Bi en={loadingMsg.en} zh={loadingMsg.zh} enClassName="font-display text-lg text-ink-soft" zhClassName="text-sm text-ink-soft" />
         </div>
       )}
 
@@ -312,19 +313,19 @@ export default function CameraCapture({
 
       {stage === "error" && (
         <div className="flex flex-col items-center gap-4 py-10 text-center">
-          <p className="font-display text-lg text-ink/80 px-4">{errorMsg}</p>
+          <BilingualMessage text={errorMsg} />
           <div className="flex w-full gap-3">
             <button
               onClick={retake}
               className="flex-1 rounded-full border border-pink-light/70 bg-white/80 py-3.5 font-sans text-xs tracking-[0.2em] text-ink-soft uppercase"
             >
-              Start Over
+              <Bi en="Start Over" zh="重新开始" enClassName="tracking-[0.2em] uppercase" />
             </button>
             <button
               onClick={runUpload}
               className="flex-1 rounded-full bg-pink py-3.5 font-sans text-xs tracking-[0.2em] text-white uppercase shadow-md shadow-pink/40"
             >
-              Retry
+              <Bi en="Retry" zh="重试" enClassName="tracking-[0.2em] uppercase" />
             </button>
           </div>
         </div>
@@ -336,10 +337,12 @@ export default function CameraCapture({
 function ShutterButton({
   onClick,
   label,
+  zh,
   compact = false,
 }: {
   onClick: () => void;
   label: string;
+  zh: string;
   compact?: boolean;
 }) {
   return (
@@ -354,7 +357,7 @@ function ShutterButton({
         <span className="absolute inset-1 rounded-full border-2 border-white/70" />
       </button>
       <span className="font-sans text-[11px] tracking-[0.25em] text-pink-dark uppercase whitespace-nowrap">
-        {label}
+        {label} <Zh>{zh}</Zh>
       </span>
     </div>
   );

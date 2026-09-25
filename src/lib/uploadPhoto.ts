@@ -30,14 +30,14 @@ export async function uploadPhoto(table: number, photo: Blob): Promise<UploadRes
       body: JSON.stringify({ table, filename, mimeType: "image/jpeg", base64 }),
     });
   } catch {
-    return { ok: false, error: "Couldn't reach the server. Please check your connection and try again." };
+    return { ok: false, error: "Couldn't reach the server. Please check your connection and try again. | 无法连接服务器，请检查网络后重试。" };
   }
 
   let data: unknown;
   try {
     data = await res.json();
   } catch {
-    return { ok: false, error: "Something went wrong. Please try again." };
+    return { ok: false, error: "Something went wrong. Please try again. | 出错了，请重试。" };
   }
 
   if (
@@ -52,7 +52,7 @@ export async function uploadPhoto(table: number, photo: Blob): Promise<UploadRes
 
   const error =
     typeof data === "object" && data !== null && "error" in data
-      ? String((data as { error?: unknown }).error ?? "Something went wrong.")
-      : "Something went wrong. Please try again.";
+      ? String((data as { error?: unknown }).error ?? "Something went wrong. | 出错了。")
+      : "Something went wrong. Please try again. | 出错了，请重试。";
   return { ok: false, error };
 }
